@@ -1,0 +1,86 @@
+
+body{
+    background-image: url('bg.jpg');
+}
+.container{
+
+    margin-top: 200px;
+    margin-left: 40%;
+    padding: 0.2rem;
+    max-width: 300px;
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    background-color:rgba(0, 0, 0, 0.348); 
+    backdrop-filter: blur(4px)
+    
+}
+.con1{
+    margin-top: 25px;
+    margin-left: 40%;
+    padding: 0.2rem;
+    max-width: 300px;
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    background-color: rgba(147, 153, 106, 0.226);
+    backdrop-filter: blur(4px)
+}
+.container a{
+    padding: 7px;
+}
+.time{
+    padding: 1rem 0;
+    font-size: 2rem;
+}
+
+
+.time span{
+    color: rgb(7, 10, 13);
+    font-size: 60px;
+}
+
+button{
+    padding: 0.4rem 1rem;
+    margin: 0 0.2rem;
+    border-radius: 10px;
+}
+
+
+.laps {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.laps::-webkit-scrollbar {
+    width: 0.2rem; 
+    background: transparent; 
+}
+.laps::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 3rem;
+}
+.lap{
+    margin-top: 10px;
+    max-width: 300px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.348);
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+    list-style: none;
+    padding:5px;
+    margin-left: 38.25%;
+    font-size: 25px;
+    
+}
+button {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer; 
+}
+
+button i {
+    color: black;
+}

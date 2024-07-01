@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+    <div class="container">
+        <p class="time">
+            <span id="minutes">00</span>: <span id="seconds">00</span>: <span id="tens">00</span>
+        </p>
+        
+    </div>
+    <div class="con1">
+        <button id="reset"><i class='bx bx-revision' style='font-size: 30px' style='color:black '  ></i></button>
+        <button id="play"><i class='bx bx-play'  style='font-size: 38px' style='color:black' ></i></button>
+        <button id="flag"><i class='bx bxs-flag' style='font-size: 28px' style='color:black' ></i></button>
+        
+    </div>
+
+    <div class="laps">
+        <ul id="lapList">
+            
+        </ul>
+    </div>
+    <script>
+        window.onload = function (){
+            let minutes=0;
+            let seconds=0;
+            let  tens=0;
+            let appendmin= document.querySelector('#minutes');
+            let appendsec=document.querySelector('#seconds');
+            let appendtens=document.querySelector('#tens');
+            let startbtn = document.querySelector('#play');
+            let resetbtn = document.querySelector('#reset');
+            let stopbtn = document.querySelector('#flag');
+            let interval;
+            let isRunning = false;
+            let lapbtn = document.querySelector('#flag');
+            let lapList = document.querySelector('#lapList');
+            
+            const startTimer = () =>{
+                tens++;
+                if (tens <=9) {
+                    appendtens.innerHTML = '0'+ tens;
+                }
+                if (tens > 9) {
+                    appendtens.innerHTML = tens;
+                }
+
+                if (tens >99) {
+                    seconds++;
+                    appendsec.innerHTML = '0'+seconds;
+                    tens =0;
+                    appendtens.innerHTML = '0'+ 0;
+                }
+
+                if  (seconds >9){
+                    appendsec.innerHTML = seconds;
+                }
+
+                if (seconds >59){
+                    minutes++;
+                    appendmin.innerHTML = '0'+ minutes;
+                    seconds =0;
+                    appendsec.innerHTML= '0'+ 0;
+                }
+
+            };
+
+            startbtn.onclick = () => {
+                if (isRunning) {
+                    clearInterval(interval);
+                    startbtn.innerHTML = "<i class='bx bx-play'  style='font-size: 38px'  ></i>";
+                } else {
+                    interval = setInterval(startTimer, 10);
+                    startbtn.innerHTML = "<i class='bx bx-pause' style='font-size: 38px'></i>";
+                }
+                isRunning = !isRunning;
+                    };
+
+            
+
+            resetbtn.onclick = () => {
+                clearInterval(interval)
+                tens='00'
+                seconds ='00'
+                minutes ='00'
+                appendtens.innerHTML = tens;
+                appendsec.innerHTML = seconds;
+                appendmin.innerHTML = minutes;
+                startbtn.innerHTML = "<i class='bx bx-play'  style='font-size: 38px'  ></i>";
+                isRunning = false;
+                lapList.innerHTML = ''
+            };
+
+            lapbtn.onclick = () => {
+                let lapTime = appendmin.innerHTML + ':' + appendsec.innerHTML + ':' + appendtens.innerHTML;
+                let lapItem = document.createElement('li');
+                lapItem.className = 'lap';
+                lapItem.innerHTML = "<span class='time-stamp'>" + lapTime + "</span>";
+                lapList.appendChild(lapItem);
+            };
+
+            
+
+        };
+    </script>
+</body>
+</html>
