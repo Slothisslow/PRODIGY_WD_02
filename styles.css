@@ -36,7 +36,8 @@ body{
 
 
 .time span{
-    color: rgb(7, 10, 13);
+    
+    color: white;
     font-size: 60px;
 }
 
@@ -50,6 +51,7 @@ button{
 .laps {
     max-height: 250px;
     overflow-y: auto;
+    color: white;
 }
 
 .laps::-webkit-scrollbar {
